@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- utf-8로 인코딩됨을 정의 -->
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>설문조사</title>
+    </head>
+    <body>
+        <header id="start">벨로그 유형조사</header>
+        <h1>설문조사 - 다른분들의 벨로그 유형조사</h1>
+        <p>안녕하세요 BE_17_김건웅 입니다</p><br>
+        <p>다른 분들의 벨로그가 궁금해 해당 설문조사를 만들었습니다</p>
+    <div>
+        <fieldset>서론
+            <p>
+                먼저 저의 벨로그 입니다
+                <a href="https://velog.io/@unge001/posts" target="_blank">벨로그 구경가기</a>
+                <p>벨로그에 있는 내용들입니다.</p>
+                <ul>
+                    <li>HTML 이론학습</li>
+                    <li>CSS 연습</li>
+                    <li>HTML 이론학습(연습)</li>
+                    <li>숫자게임</li>
+                    <li>oh-mt-zsh 첫경험</li>
+                    <li>python</li>
+                    <li>python(2)</li>
+                    <li>while의 무한루프</li>
+                </ul>
+                <p>벨로그의 목차를 표로 만들어보겠습니다</p>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th width="150">제목</th>
+                            <th width="150">내용</th>
+                            <th width="150">게시일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML이론학습</td>
+                            <td>html첫과제</td>
+                            <td>2025-12-25</td>
+                        </tr>
+                        <tr>
+                            <td>HTML이론학습(연습)</td>
+                            <td>자주이용하는링크모음</td>
+                            <td>2025-12-26</td>
+                        </tr>
+                        <tr>
+                            <td>CSS 연습</td>
+                            <td>CSS 첫과제</td>
+                            <td>2025-12-27</td>
+                        </tr>
+                        <tr>
+                            <td>숫자게임</td>
+                            <td>첫python 활용</td>
+                            <td>2025-12-28</td>
+                        </tr>
+                        <tr>
+                            <td>oh-mt-zsh첫경험</td>
+                            <td>터미널테마바꾸기</td>
+                            <td>2025-12-31</td>
+                        </tr>
+                        <tr>
+                            <td>python</td>
+                            <td>텍스트찾기</td>
+                            <td>2026-01-03</td>
+                        </tr>
+                        <tr>
+                            <td>python(2)</td>
+                            <td>기본적인 게임</td>
+                            <td>2026-01-04</td>
+                        </tr>
+                        <tr>
+                            <td>while무한루프</td>
+                            <td>while루프탈출기</td>
+                            <td>2026-01-07</td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+        </p>
+        </fieldset>
+        <main id="question">질문지</main>
+        <fieldset>본론
+            <form action="보내고싶은 서버" method="post">. <!-- 서버에 전송하여 내용추가하는 것이니 post--> 
+                <p>블로그 작성주기는 어떻게 하나요?</p>
+                <input type="radio" id="cycle" name="1">
+                <label for="cycle">1일~3일</label>
+                <input type="radio" id="cycle" name="1">
+                <label for="cycle">1주일</label>
+                <input type="radio" id="cycle"name="1">
+                <label for="cycle">2주일</label>
+                <input type="radio" id="cycle"name="1">
+                <label for="cycle">3주일</label>
+                <input type="radio" id="cycle"name="1">
+                <label for="cycle">1달</label>
+                <input type="radio" id="cycle"name="1">
+                <label for="cycle">그 이상</label>
+                <p>주로 어떤 내용을 올리나요</p>
+                <textarea cols="30" rows="10">주제</textarea>
+                <p>위 설문에 대한 답변을 공유하고 싶으신가요</p>
+                <select>
+                    <option>답선택</option>
+                    <option>네</option>
+                    <option>아니오</option>
+                </select>
+            </form>
+        </fieldset>
+        <nav>
+            <ul>
+                <li><a href="start">처음으로 이동</a></li>
+                <li><a href="#question">질문지로 이동</a></li>
+            </ul>
+        </nav>
+</div>
+</body>
+</html>
