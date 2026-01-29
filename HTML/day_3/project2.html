@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <title>Admin Page</title>
+  </head>
+  <body>
+      <nav aria-label="Page navigation" style="float: left top; width: 40px; margin: 1px 0 20px 100px; font-size: 10px;">
+        <ul class="pagination justify-content-center mt-4">
+          <li class="page-item active col-auto"><a class="page-link" href="#" onclick="change_mode()">화면모드</a></li>
+          <li class="page-item active col-auto">
+            <a class="page-link" href="#" 
+            data-bs-toggle="modal" data-bs-target="#myModal">
+            회원가입</a>
+        </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container mt-3">
+      <h3 class="mt-5 mb-3">신규 등록 상품</h3>
+      <form class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-auto">
+          <label class="visually-hidden" for="inlineFormSelectPref"
+            >Preference</label
+          >
+          <div class="d-flex gap-2">
+            <select
+              class="form-select"
+              id="inlineFormSelectPref"
+              name="category_data_table"
+              style="width: 150px"
+            >
+              <!-- 셀렉트요소의 name="category_data_table"은 지우거나 변경하면 안돼요 -->
+              <!-- 카테고리 셀렉트 코드를 넣어주세요 -->
+              <option value="category">category</option>
+              <option value="상의">상의</option>
+              <option value="하의">하의</option>
+              <option value="신발">신발</option>
+              <option value="패션잡화">패션잡화</option>
+            </select>
+            <select
+              class="form-select"
+              id="genderSelect"
+              name="gender_data_table"
+              style="width: 80px"
+            >
+              <option value="gender">성별</option>
+              <option value="male">남</option>
+              <option value="female">여</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-auto">
+          <!-- input 입력창 코드를 넣어주세요 -->
+          <input
+            type="text"
+            class="form-control"
+            placeholder="제품명을 입력해주세요"
+            style="
+              height: 38px;
+              border-radius: 5px;
+              border: 1px solid rgba(11, 11, 11, 0.12);
+            "
+          />
+        </div>
+        <div class="col-auto">
+          <!-- 조회 버튼 코드를 넣어주세요 -->
+          <button type="submit" class="btn btn-info px-3">조회</button>
+        </div>
+      </form>
+
+      <div class="container mt-3">
+        <table class="table table-sm">
+          <thead class="fw-semibold" id="product_category_table">
+            <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
+          </thead>
+          <tbody id="product_data_Table">
+            <!-- tbody요소의 id="product_data_Table" 는 지우거나 변경하면 안돼요! -->
+            <!-- 제품 데이터가 여기 추가됩니다. -->
+          </tbody>
+        </table>
+      </div>
+      <!-- 페이지 네이션 코드를 넣어주세요 -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mt-4">
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModallabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-between align-items-center" >
+                        <h2 class="modal-title" id="myModelLabel">Sign up</h2>
+                        <p><a href="#" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">exit</a></p>
+                    </div>
+                        <div class="modal-body p-4">
+                            <form id="signupForm" action="" novalidate>
+                                <div class="mb-3">
+                                    <label for="userID" class="form-label">ID</label>
+                                    <input
+                                        type="text"
+                                        id="userID"
+                                        class="form-control"
+                                    />
+                                    <button onclick="checkId()">checkID</button>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userPW" class="form-label">PassWord</label>
+                                    <input
+                                        type="password"
+                                        id="userPW"
+                                        class="form-control"
+                                    />
+                                    <div class="invalid-feedback">비밀번호는 8자 이상이어야 합니다.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="checkPW" class="form-label">checking PassWord</label>
+                                    <input
+                                        type="password"
+                                        id="checkPW"
+                                        class="form-control"
+                                    />
+                                    <div class="invalid-feedback">비밀번호가 일치하지 않습니다.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userName" class="form-label">user name</label>
+                                    <input
+                                        type="text"
+                                        id="userName"
+                                        class="form-control"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userPhone" class="form-label"
+                                        >user phone number</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        id="userPhone"
+                                        class="form-control"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label d-block">gender</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" />
+                                        <label class="form-check-label" for="male">male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="female" value="female" />
+                                        <label class="form-check-label" for="female">female</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="userEmail" class="form-label">user email</label>
+                                    <input
+                                        type="email"
+                                        id="userEmail"
+                                        class="form-control"
+                                    />
+                                </div>
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 아이디 중복 검사 함수
+        const ID=document.getElementById('userID');
+        const idSet = new Set(["unge001"])
+        function checkId(){
+            const userID = ID.value
+            if (idSet.has(userID)) {
+                console.error("중복된 아이디 사용불가")
+            } else {
+                console.log("사용가능한 아이디")
+                idSet.add(userID)
+            }
+        }
+        // 비밀번호 제약 8자리이상 과 비밀번호 확인 과정엑서 기존 비밀번호와 같은지 확인
+        document.querySelector('#signupForm').addEventListener('submit', function (e){ 
+            const password = document.getElementById("userPW");
+            const checkPassword = document.getElementById("checkPW");
+            let isValid = true;
+
+            if (password.value.length < 8) {
+                password.classList.add('is-invalid');
+                isValid=false;
+            } else {
+                password.classList.remove('is-invalid');
+                password.classList.add('is-valid');
+            }
+
+            if (password.value !== checkPassword.value || checkPassword.value === "" ){
+                checkPassword.classList.add('is-invalid');
+                isValid=false;
+            } else {
+                checkPassword.classList.remove('is-invalid');
+                checkPassword.classList.add('is-valid');
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("얍")
+            } else {
+                e.preventDefault();
+                localStorage.setItem('userName',document.getElementById('userName').value)
+                localStorage.setItem('userId',ID.value)
+                localStorage.setItem('userPhone',document.getElementById("userPhone").value)
+                alert('회원가입 완료');
+                // location.href="member.html";
+                location.replace("member.html");
+            }
+        },false );
+        // 회원가입 버튼 눌렀을때 회원가입폼 출력
+        const myModalEl = document.getElementById('myModal');
+        myModalEl.addEventListener('hidden.bs.modal',function () {
+            const form = this.querySelector('form');
+            form.reset();
+
+            const elements = form.querySelectorAll('.form-control');
+            elements.forEach(el => {
+                el.classList.remove('is-valid','is-invalid');
+            });
+        })
+        // 다크모드 리이트모드 전환
+        function change_mode() {
+            const mode = document.documentElement.getAttribute('data-bs-theme')
+            if (mode == 'light'){
+                document.documentElement.setAttribute('data-bs-theme','dark');
+            } else {
+                document.documentElement.setAttribute('data-bs-theme','light');
+            }
+        }
+
+      // 제품 데이터
+      const product_category = ['Category', 'Brand', 'Product', 'Price'];
+      const category_table = document.getElementById('product_category_table');
+      const headerRow = document.createElement('tr');
+      product_category.forEach((item) => {
+        const th = document.createElement('th');
+        th.innerHTML = item;
+        headerRow.appendChild(th);
+        category_table.appendChild(headerRow);
+      });
+      const product_data = [
+        {
+          category: '상의',
+          brand: 'Supreme',
+          product: '슈프림 박스로고 후드티',
+          price: '390,000',
+        },
+        {
+          category: '하의',
+          brand: 'DIESEL',
+          product: '디젤 트랙 팬츠',
+          price: '188,000',
+        },
+        {
+          category: '신발',
+          brand: 'Nike',
+          product: '에어포스 1',
+          price: '137,000',
+        },
+        {
+          category: '패션잡화',
+          brand: 'Music&Goods',
+          product: '빵빵이 키링',
+          price: '29,000',
+        },
+        // ...
+      ];
+
+      // 제품 테이블에 데이터 추가
+      const product_data_Table = document.getElementById('product_data_Table');
+
+      // 초기 데이터 로딩
+      product_data.forEach((item) => {
+        const row = product_data_Table.insertRow();
+        row.insertCell(0).innerHTML = item.category;
+        row.insertCell(1).innerHTML = item.brand;
+        row.insertCell(2).innerHTML = item.product;
+        row.insertCell(3).innerHTML = item.price;
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
