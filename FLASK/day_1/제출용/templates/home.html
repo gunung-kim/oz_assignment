@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>home</title>
+  </head>
+  <body>
+    <h1>user_list</h1>
+    {% for user in users %}
+    <ul>
+      <li>{{user.name}} : {{user.username}}</li>
+    </ul>
+    {% endfor %}
+    <form action="/user" method="get">
+      <input type="text" name="name" id="search" placeholder="name" />
+      <button type="submit" for="search">submit</button>
+    </form>
+  </body>
+</html>

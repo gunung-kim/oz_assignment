@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>USER LIST</title>
+  </head>
+  <body>
+    <h1>user list</h1>
+    {% if find_list %}
+    <ul>
+      <li>{{find_list.name}} is {{find_list.username}}</li>
+      {% else %}
+      <li>nuknown user</li>
+    </ul>
+    {% endif %}
+  </body>
+</html>
