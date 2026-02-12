@@ -1,0 +1,4 @@
+mysql_hosts: 'localhost'
+mysql_user: 'root'
+mysql_password: 'unge0725'
+mysql_db: 'vod'
