@@ -3,6 +3,7 @@ from .models import Todo
 
 def root(request):
     return render(request,'root.html')
+
 def todo_list(request):
     todos = Todo.objects.all()
     context = {'todos': todos}
