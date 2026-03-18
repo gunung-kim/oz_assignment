@@ -9,7 +9,7 @@
 </head>
 <body>
     {% for todo in todos %}
-        <h2><a href="{{ todo.id }}/">{{ todo.title }}</a></h2><br>
+        <h2><a href="{% url 'todo_detail' todo.id %}">{{ todo.title }}</a></h2><br>
     {% endfor %}
 </body>
 </html>

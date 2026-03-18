@@ -9,7 +9,8 @@
 </head>
 <body>
     <h1>{{ target_todo.title }}</h1>
-    <ui>
+    <hr>
+    <ul>
         <li>해야할것들 : {{ target_todo.description }}</li>
         <li>시작일 : {{ target_todo.start_date }}</li>
         <li>마감일 : {{ target_todo.end_date }}</li>
@@ -20,6 +21,6 @@
         {% endif %}
         <li>생성일 : {{ target_todo.create_at }}</li>
         <li>수정일 : {{ target_todo.modified_at }}</li>
-    </ui>
+    </ul>
 </body>
 </html>
