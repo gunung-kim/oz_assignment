@@ -15,6 +15,10 @@
         {{ form.as_p }}
         <button>회원가입</button>
     </form>
-    <a href={% url 'login' %}>로그인</a>
+    <hr>
+    <form method="GET" action="{% url 'login' %}">
+        <p style="display: inline">기존의 아이디로 로그인 하기</p>
+        <button>로그인</button>
+    </form>
 </body>
 </html>

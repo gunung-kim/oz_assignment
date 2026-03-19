@@ -8,8 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    {% for todo in todos %}
-        <h2><a href="{% url 'todo_detail' todo.id %}">{{ todo.title }}</a></h2><br>
-    {% endfor %}
+    {% if not todos %}
+        <h2>{{ msg }}</h2>
+
+        <form method="GET" action="{% url 'login' %}" style="display: inline">
+            <button>로그인</button>
+        </form>
+        <form mehtod="GET" action="{% url 'sign_up' %}" style="display: inline">
+            <button>회원가입</button>
+        </form>
+
+    {% else %}
+        {% for todo in todos %}
+            <h2><a href="{% url 'todo_detail' todo.pk %}">{{ todo.title }}</a></h2><br>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

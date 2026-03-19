@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="0e5cd40e-f1e0-42f0-a93f-89627c82aeb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day_2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/day_2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day_2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/day_2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/todo_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/todo_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/todo_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/todo_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +55,9 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "chapter__2",
+    "git-widget-placeholder": "chapter__2__1",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.python.templateLanguages.PyTemplateLanguageModulesConfigurable",
+    "settings.editor.selected.configurable": "com.intellij.python.django.customization.DjangoModulesConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -95,6 +106,7 @@
       <workItem from="1773724390398" duration="2233000" />
       <workItem from="1773727284506" duration="147000" />
       <workItem from="1773727962996" duration="13000" />
+      <workItem from="1773888773935" duration="16566000" />
     </task>
     <servers />
   </component>

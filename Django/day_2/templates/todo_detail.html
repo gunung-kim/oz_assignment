@@ -8,19 +8,31 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ target_todo.title }}</h1>
-    <hr>
-    <ul>
-        <li>해야할것들 : {{ target_todo.description }}</li>
-        <li>시작일 : {{ target_todo.start_date }}</li>
-        <li>마감일 : {{ target_todo.end_date }}</li>
-        {% if target_todo.is_completed %}
-            <li> 성공 or 실패 : 성공</li>
-        {% else %}
-            <li>성공 or 실패 : 실패</li>
-        {% endif %}
-        <li>생성일 : {{ target_todo.create_at }}</li>
-        <li>수정일 : {{ target_todo.modified_at }}</li>
-    </ul>
+    {% if not target_todo %}
+        <h2>{{ msg }}</h2>
+
+        <form method="GET" action="{% url 'login' %}" style="display: inline">
+            <button>로그인</button>
+        </form>
+        <form mehtod="GET" action="{% url 'sign_up' %}" style="display: inline">
+            <button>회원가입</button>
+        </form>
+
+    {% else %}
+        <h1>{{ target_todo.title }}</h1>
+        <hr>
+        <ul>
+            <li>해야할것들 : {{ target_todo.description }}</li>
+            <li>시작일 : {{ target_todo.start_date }}</li>
+            <li>마감일 : {{ target_todo.end_date }}</li>
+            {% if target_todo.is_completed %}
+                <li> 성공 or 실패 : 성공</li>
+            {% else %}
+                <li>성공 or 실패 : 실패</li>
+            {% endif %}
+            <li>생성일 : {{ target_todo.create_at }}</li>
+            <li>수정일 : {{ target_todo.modified_at }}</li>
+        </ul>
+    {% endif %}
 </body>
 </html>
