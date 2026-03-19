@@ -4,5 +4,4 @@ from . import views
 urlpatterns = [
     path('sign_up/', views.sign_up, name='sign_up'),
     path('login/',views.login,name='login'),
-    path('logout/',include('django.contrib.auth.urls')),
 ]
