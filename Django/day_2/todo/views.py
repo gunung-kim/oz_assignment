@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .forms import TodoUpdate,TodoCreate
+from django.views.decorators.http import require_http_methods
 
 def root(request):
     return render(request,'root.html')
@@ -56,6 +57,7 @@ def todo_update(request,pk):
     return render(request,'todo_update.html',context)
 
 @login_required(login_url=settings.LOGIN_URL)
+@require_http_methods(['POST'])
 def todo_delete(request,pk):
     todo = get_object_or_404(Todo,pk=pk,author=request.user)
     todo.delete()
