@@ -1,26 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ target_todo.title }}</h1>
-    <hr>
-    <ul>
-        <li>해야할것들 : {{ target_todo.description }}</li>
-        <li>시작일 : {{ target_todo.start_date }}</li>
-        <li>마감일 : {{ target_todo.end_date }}</li>
-        {% if target_todo.is_completed %}
-            <li> 성공 or 실패 : 성공</li>
-        {% else %}
-            <li>성공 or 실패 : 실패</li>
-        {% endif %}
-        <li>생성일 : {{ target_todo.create_at }}</li>
-        <li>수정일 : {{ target_todo.modified_at }}</li>
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    {% if not target_todo %}
+        <h2>{{ msg }}</h2>
+    {% else %}
+        <h1>{{ target_todo.title }}</h1>
+        <p>작성자 : {{ request.user.username }}</p>
+        <hr>
+        <ul>
+            <li>해야할것들 : {{ target_todo.description }}</li>
+            <li>시작일 : {{ target_todo.start_date }}</li>
+            <li>마감일 : {{ target_todo.end_date }}</li>
+            {% if target_todo.is_completed %}
+                <li> 성공 or 실패 : 성공</li>
+            {% else %}
+                <li>성공 or 실패 : 실패</li>
+            {% endif %}
+            <li>생성일 : {{ target_todo.create_at }}</li>
+            <li>수정일 : {{ target_todo.modified_at }}</li>
+        </ul>
+        <a href="{% url 'todo_list' %}">뒤로가기</a>
+        <div style="display: flex">
+            <form method="POST" action="{% url 'todo_delete' target_todo.id %}">
+                {% csrf_token %}
+                <button>삭제</button>
+            </form>
+            <form method="POST" action="{% url 'todo_update' target_todo.id %}">
+                {% csrf_token %}
+                <button>수정</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        {% if not request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'login' %}">로그인</a>
+                <a href="{% url 'sign_up' %}">회원가입</a>
+                <hr>
+            </div>
+        {% else %}
+            <div style="display: inline;">{{ request.user.username }}
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button>로그아웃</button>
+                </form>
+            </div>
+            <hr>
+        {% block content %}
+
+        {% endblock %}
+        {% endif %}
+    </nav>
+</body>
+</html>
