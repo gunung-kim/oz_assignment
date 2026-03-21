@@ -1,25 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     {% if not target_todo %}
         <h2>{{ msg }}</h2>
-
-        <form method="GET" action="{% url 'login' %}" style="display: inline">
-            <button>로그인</button>
-        </form>
-        <form mehtod="GET" action="{% url 'sign_up' %}" style="display: inline">
-            <button>회원가입</button>
-        </form>
-
     {% else %}
         <h1>{{ target_todo.title }}</h1>
+        <p>작성자 : {{ request.user.username }}</p>
         <hr>
         <ul>
             <li>해야할것들 : {{ target_todo.description }}</li>
@@ -33,6 +18,16 @@
             <li>생성일 : {{ target_todo.create_at }}</li>
             <li>수정일 : {{ target_todo.modified_at }}</li>
         </ul>
+        <a href="{% url 'todo_list' %}">뒤로가기</a>
+        <div style="display: flex">
+            <form method="POST" action="{% url 'todo_delete' target_todo.id %}">
+                {% csrf_token %}
+                <button>삭제</button>
+            </form>
+            <form method="POST" action="{% url 'todo_update' target_todo.id %}">
+                {% csrf_token %}
+                <button>수정</button>
+            </form>
+        </div>
     {% endif %}
-</body>
-</html>
+{% endblock %}
