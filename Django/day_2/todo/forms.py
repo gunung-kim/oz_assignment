@@ -9,9 +9,8 @@ class TodoForm(forms.ModelForm):
 
 class TodoCreate(TodoForm):
 
-    class Meta:
-        model=Todo
-        fields=('end_date',)
+    class Meta(TodoForm.Meta):
+        fields=TodoForm.Meta.fields+('end_date',)
 
 # class TodoUpdate(forms.ModelForm):
 #
