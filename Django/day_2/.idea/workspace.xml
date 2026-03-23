@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="56a136bc-99d1-476e-bcc0-bc77499885b8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day_2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/day_2/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/todo_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/todo_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +100,8 @@
       <updated>1774034278248</updated>
       <workItem from="1774034279726" duration="14594000" />
       <workItem from="1774105795479" duration="1435000" />
-      <workItem from="1774110249422" duration="117000" />
+      <workItem from="1774110249422" duration="807000" />
+      <workItem from="1774232262527" duration="9584000" />
     </task>
     <servers />
   </component>

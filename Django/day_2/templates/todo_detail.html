@@ -24,7 +24,7 @@
                 {% csrf_token %}
                 <button>삭제</button>
             </form>
-            <form method="POST" action="{% url 'todo_update' target_todo.id %}">
+            <form method="GET" action="{% url 'todo_update' target_todo.id %}">
                 {% csrf_token %}
                 <button>수정</button>
             </form>
