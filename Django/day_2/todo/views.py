@@ -11,6 +11,7 @@ def root(request):
 
 @login_required()
 def todo_list(request):
+
     user_todo = Todo.objects.filter(author=request.user).order_by('-create_at')
     if not user_todo:
         return render(request,'todo_list.html',{'todos':None,'msg':'아직 게시글이 없습니다'})
@@ -22,13 +23,13 @@ def todo_list(request):
     paginator = Paginator(user_todo,10)
     page = request.GET.get('page',1)
     page_obj = paginator.get_page(page)
-    context = {'todos': user_todo,'page_obj':page_obj}
+    context = {'object_list': page_obj,'page_obj':page_obj }
     return render(request,'todo_list.html',context)
 
 @login_required()
 def todo_detail(request,pk):
     target_todo = get_object_or_404(Todo,pk=pk,author=request.user)
-    context = {'target_todo': target_todo.__dict__}
+    context = {'object': target_todo.__dict__}
     return render(request,'todo_detail.html',context)
 
 @login_required()
