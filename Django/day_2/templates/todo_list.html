@@ -2,15 +2,15 @@
 {% block content %}
     {% if not object_list %}
         <h2>{{ msg }}</h2>
-        <form method="POST" action="{% url 'todo:create' %}">
+        <form method="POST" action="{% url 'todo_create' %}">
             {% csrf_token %}
             <button>게시글 생성하러 가기</button>
         </form>
     {% else %}
         {% for todo in object_list %}
-            <h2><a href="{% url 'todo:detail' todo.pk %}">{{ todo.title }} ({{ todo.start_date | date:"m-d"}} -> {{ todo.end_date | date:"m-d"}})</a></h2><br>
+            <h2><a href="{% url 'todo_detail' todo.pk %}">{{ todo.title }} ({{ todo.start_date | date:"m-d"}} -> {{ todo.end_date | date:"m-d"}})</a></h2><br>
         {% endfor %}
-        <form style="text-align: right" method="POST" action="{% url 'todo:create' %}">
+        <form style="text-align: right" method="POST" action="{% url 'todo_create' %}">
             {% csrf_token %}
             <button>게시글 추가 생성하러 가기</button>
         </form>

@@ -18,13 +18,13 @@
             <li>생성일 : {{ object.create_at }}</li>
             <li>수정일 : {{ object.modified_at }}</li>
         </ul>
-        <a href="{% url 'todo:list' %}">뒤로가기</a>
+        <a href="{% url 'todo_list' %}">뒤로가기</a>
         <div style="display: flex">
-            <form id="delete_form" method="POST" action="{% url 'todo:delete' object.pk %}">
+            <form id="delete_form" method="POST" action="{% url 'todo_delete' object.pk %}">
                 {% csrf_token %}
                 <button type="button" id="delete_btn">삭제</button>
             </form>
-            <form method="GET" action="{% url 'todo:update' object.pk %}">
+            <form method="GET" action="{% url 'todo_update' object.pk %}">
                 {% csrf_token %}
                 <button>수정</button>
             </form>

@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth import get_user_model
-from django.urls import reverse
+# from django.urls import reverse
 
 User = get_user_model()
 
@@ -18,8 +18,8 @@ class Todo(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('todo:detail',kwargs={'pk':self.pk})
+    # def get_absolute_url(self):
+    #     return reverse('todo_detail',kwargs={'pk':self.pk})
 
     class Meta:
         verbose_name = "할일"
