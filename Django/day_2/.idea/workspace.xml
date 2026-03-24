@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56a136bc-99d1-476e-bcc0-bc77499885b8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="56a136bc-99d1-476e-bcc0-bc77499885b8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +100,7 @@
       <workItem from="1774105795479" duration="1435000" />
       <workItem from="1774110249422" duration="807000" />
       <workItem from="1774232262527" duration="9903000" />
-      <workItem from="1774275701203" duration="14457000" />
+      <workItem from="1774275701203" duration="15031000" />
     </task>
     <servers />
   </component>
