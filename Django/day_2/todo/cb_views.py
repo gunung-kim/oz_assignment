@@ -57,11 +57,12 @@ class TodoUpdateView(LoginRequiredMixin,UpdateView):
     template_name='todo_update.html'
     fields=('title','description','end_date','is_completed')
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        if not self.request.user.is_superuser:
-            return queryset.filter(author=self.request.user)
-        return queryset
+    def get_object(self,queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object != self.request.user:
+            if not self.request.user.is_superuser:
+                raise Http404
+        return self.object
 
     def get_success_url(self):
         return reverse_lazy('todo_detail',kwargs={'pk':self.object.pk})
@@ -69,13 +70,12 @@ class TodoUpdateView(LoginRequiredMixin,UpdateView):
 class TodoDeleteView(LoginRequiredMixin,DeleteView):
     model = Todo
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        if self.request.method == "GET":
-            raise Http404
-        if not self.request.user.is_superuser:
-            return queryset.filter(author=self.request.user)
-        return queryset
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object != self.request.user:
+            if not self.request.user.is_superuser:
+                raise Http404
+        return self.object
 
     def get_success_url(self):
         return reverse_lazy('todo_list')
