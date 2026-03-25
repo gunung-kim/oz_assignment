@@ -15,4 +15,9 @@ urlpatterns = [
     path('CBV/create/', cb_views.TodoCreateView.as_view(), name='todo_create'),
     path('CBV/<int:pk>/update/', cb_views.TodoUpdateView.as_view(), name='todo_update'),
     path('CBV/<int:pk>/delete/', cb_views.TodoDeleteView.as_view(), name='todo_delete'),
+
+    #comment
+    path('comment/create/<int:todo_pk>/',cb_views.CommentCreateView.as_view(), name='comment_create'),
+    path('comment/<int:pk>/update/',cb_views.CommentUpdateView.as_view(),name='comment_update'),
+    path('comment/<int:pk>/delete/',cb_views.CommentDeleteView.as_view(),name='comment_delete'),
 ]

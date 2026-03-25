@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if not object %}
+        <h2>{{ msg }}</h2>
+    {% else %}
+        <h1>{{ object.title }}</h1>
+        <p>작성자 : {{ request.user.username }}</p>
+        <hr>
+        <ul>
+            <li>해야할것들 : {{ object.description }}</li>
+            <li>시작일 : {{ object.start_date }}</li>
+            <li>마감일 : {{ object.end_date }}</li>
+            {% if object.is_completed %}
+                <li> 성공 or 실패 : 성공</li>
+            {% else %}
+                <li>성공 or 실패 : 실패</li>
+            {% endif %}
+            <li>생성일 : {{ object.create_at }}</li>
+            <li>수정일 : {{ object.modified_at }}</li>
+        </ul>
+        <hr>
+        <div>
+            <div class="d-flex justify-content-end">
+                <a href="{% url 'todo_list' %}">뒤로가기</a>
+            </div>
+            <div class="d-inline-flex justify-content-start">
+                <form id="delete_form" method="POST" action="{% url 'todo_delete' object.pk %}">
+                    {% csrf_token %}
+                    <button class="btn btn-sm btn-danger" type="button" id="delete_btn">삭제</button>
+                </form>
+                <form method="GET" action="{% url 'todo_update' object.pk %}">
+                    {% csrf_token %}
+                    <button class="btn btn-sm btn-primary">수정</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    <hr>
+    <div>
+        <form method="POST" action="{% url 'comment_create' object.pk %}">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button class="btn btn-sm btn-primary">작성</button>
+        </form>
+    </div>
+    <hr>
+    <div>
+        {% for comment in page_obj %}
+            <p class="">{{ comment.user.username }} : {{ comment.message }}</p>
+            <div class="d-flex justify-content-end">
+                <div>
+                    <a href="{% url 'comment_update' comment.pk %}" class="btn btn-sm btn-warning">수정</a>
+                </div>
+                <div>
+                    <form method="POST" action="{% url 'comment_delete' comment.pk %}">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-danger">삭제</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="pagination">
+        {% include 'pagination.html' with fragment='pagination' %}
+    </div>
+{% endblock %}
+{% block js %}
+    {% include 'js/form_delete.html' %}
+{% endblock %}

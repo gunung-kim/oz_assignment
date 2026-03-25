@@ -23,16 +23,6 @@
         </form>
     </div>
     <hr>
-    <div>
-    {% if page_obj.has_previous %}
-        <a href="?page=1&q={% if request.GET.q %}{{ request.GET.q }}{% endif %}">&laquo 맨앞으로</a>
-        <a href="?page={{ page_obj.previous_page_number }}&q={% if request.GET.q %}{{ request.GET.q }}{% endif %}">이전</a>
-    {% endif %}
-    <a href="?page={{ page_obj.number }}&q={% if request.GET.q %}{{ request.GET.q }}{% endif %}">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a>
-    {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}&q={% if request.GET.q %}{{ request.GET.q }}{% endif %}">다음</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}&q={% if request.GET.q %}{{ request.GET.q }}{% endif %}">마지막으로</a>
-    {% endif %}
-    </div>
+    {% include 'pagination.html' with fragment='page-control' %}
 {% endblock %}
 
