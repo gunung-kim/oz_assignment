@@ -14,7 +14,7 @@ def todo_list(request):
 
     user_todo = Todo.objects.filter(author=request.user).order_by('-create_at')
     if not user_todo:
-        return render(request,'todo_list.html',{'todos':None,'msg':'아직 게시글이 없습니다'})
+        return render(request, 'todo/todo_list.html', {'todos':None, 'msg': '아직 게시글이 없습니다'})
     q = request.GET.get('q')
     if q:
         user_todo = user_todo.filter(
@@ -24,13 +24,13 @@ def todo_list(request):
     page = request.GET.get('page',1)
     page_obj = paginator.get_page(page)
     context = {'object_list': page_obj,'page_obj':page_obj }
-    return render(request,'todo_list.html',context)
+    return render(request, 'todo/todo_list.html', context)
 
 @login_required()
 def todo_detail(request,pk):
     target_todo = get_object_or_404(Todo,pk=pk,author=request.user)
     context = {'object': target_todo.__dict__}
-    return render(request,'todo_detail.html',context)
+    return render(request, 'todo/todo_detail.html', context)
 
 @login_required()
 def todo_create(request):
@@ -41,7 +41,7 @@ def todo_create(request):
         todo.save()
         return redirect(reverse('todo_detail',kwargs={'pk':todo.pk}))
     context = {'form': form}
-    return render(request,'todo_create.html',context)
+    return render(request, 'todo/todo_create.html', context)
 
 @login_required()
 def todo_update(request,pk):
@@ -54,7 +54,7 @@ def todo_update(request,pk):
     else:
         form = TodoForm(instance=todo)
     context = {'form':form}
-    return render(request,'todo_update.html',context)
+    return render(request, 'todo/todo_update.html', context)
 
 @login_required()
 @require_http_methods(['POST'])

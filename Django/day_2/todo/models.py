@@ -25,3 +25,17 @@ class Todo(models.Model):
         verbose_name = "할일"
         verbose_name_plural = "할일 목록"
 
+class Comment(models.Model):
+    todo = models.ForeignKey(Todo,on_delete=models.CASCADE,related_name='comments')
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    message = models.TextField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.username} : {self.message} | {self.todo.title}"
+
+    class Meta:
+        verbose_name = "댓글"
+        verbose_name_plural = "댓글 목록"
+        ordering = ["-created_at"]
