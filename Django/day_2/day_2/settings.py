@@ -45,7 +45,12 @@ OWER_APPS = [
     'users',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + OWER_APPS
+THIRD_PARTY_APPS = [
+    'django_extensions',
+    'django_summernote'
+]
+
+INSTALLED_APPS = DJANGO_APPS + OWER_APPS+ THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,3 +134,63 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 LOGIN_REDIRECT_URL='/todo/CBV/'
 LOGOUT_REDIRECT_URL='/accounts/login/'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+
+    # Or, you can set it to `False` to use SummernoteInplaceWidget by default - no iframe mode
+    # In this case, you have to load Bootstrap/jQuery sources and dependencies manually.
+    # Use this when you're already using Bootstrap/jQuery based themes.
+    'iframe': False,
+
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '100%',
+        'height': '480',
+
+        # Use proper language setting automatically (default)
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'help']],
+        ],
+
+        # Or, explicitly set language/locale for editor
+        'lang': 'ko-KR',
+
+        # You can also add custom settings for external plugins
+        'print': {
+            'stylesheetUrl': '/some_static_folder/printable.css',
+        },
+        'codemirror': {
+            'mode': 'htmlmixed',
+            'lineNumbers': 'true',
+            # You have to include theme file in 'css' or 'css_for_inplace' before using it.
+            'theme': 'monokai',
+        },
+    },
+
+    # Require users to be authenticated for uploading attachments.
+    'attachment_require_authentication': True,
+
+    # You can completely disable the attachment feature.
+    'disable_attachment': False,
+
+    # Set to `False` to return attachment paths in relative URIs.
+    'attachment_absolute_uri': True,
+}

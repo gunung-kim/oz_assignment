@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .forms import CommentForm
+from .forms import CommentForm, TodoForm,TodoUpdateForm
 from .models import Todo,Comment
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -54,8 +54,9 @@ class TodoDetailView(LoginRequiredMixin,DetailView):
 
 class TodoCreateView(LoginRequiredMixin,CreateView):
     model = Todo
-    template_name = 'todo/todo_create.html'
-    fields=('title','description','start_date','end_date','is_completed')
+    template_name = 'todo/todo_form.html'
+    # fields=('title','description','start_date','end_date','is_completed')
+    form_class = TodoForm
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -68,15 +69,24 @@ class TodoCreateView(LoginRequiredMixin,CreateView):
 
 class TodoUpdateView(LoginRequiredMixin,UpdateView):
     model = Todo
-    template_name= 'todo/todo_update.html'
-    fields=('title','description','end_date','is_completed')
+    template_name= 'todo/todo_form.html'
+    # fields=('title','description','end_date','is_completed')
+    form_class = TodoUpdateForm
 
     def get_object(self,queryset=None):
         self.object = super().get_object(queryset)
         if self.object != self.request.user:
             if not self.request.user.is_superuser:
                 raise Http404
+        if not self.object.thumbnail:
+            return self.object
+        self.object.is_completed = True
+        self.object.save()
         return self.object
+    #
+    # def form_valid(self):
+    #     print(form.cleaned_data)
+    #     return super().form_valid()
 
     def get_success_url(self):
         return reverse_lazy('todo_detail',kwargs={'pk':self.object.pk})
