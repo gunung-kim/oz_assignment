@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56a136bc-99d1-476e-bcc0-bc77499885b8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/auth/signup_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/auth/signup_fail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/auth/signup_pending.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utls/email.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day_2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/day_2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +66,9 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;chapter7&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chapter7__1&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/admin/Desktop/oz_assignment/Django/day_2/static&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -122,6 +134,10 @@
       <workItem from="1774423807093" duration="2325000" />
       <workItem from="1774500169226" duration="8176000" />
       <workItem from="1774603399680" duration="4564000" />
+      <workItem from="1774693076715" duration="658000" />
+      <workItem from="1774694547567" duration="11028000" />
+      <workItem from="1774708160970" duration="77000" />
+      <workItem from="1774708254248" duration="15210000" />
     </task>
     <servers />
   </component>
