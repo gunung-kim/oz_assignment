@@ -3,11 +3,11 @@ from . import views,cb_views
 
 urlpatterns = [
     # FBV
-    path('FBV/',views.todo_list,name='todo_list'),
-    path('FBV/<int:pk>/',views.todo_detail,name='todo_detail'),
-    path('FBV/<int:pk>/update/',views.todo_update,name='todo_update'),
-    path('FBV/create/',views.todo_create,name='todo_create'),
-    path('FBV/<int:pk>/delete/',views.todo_delete,name='todo_delete'),
+    path('FBV/',views.todo_list),
+    path('FBV/<int:pk>/',views.todo_detail),
+    path('FBV/<int:pk>/update/',views.todo_update),
+    path('FBV/create/',views.todo_create),
+    path('FBV/<int:pk>/delete/',views.todo_delete),
 
     #CBV
     path('CBV/', cb_views.TodoListView.as_view(), name='todo_list'),
