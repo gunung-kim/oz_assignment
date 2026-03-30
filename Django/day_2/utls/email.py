@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-from day_2 import settings
+from django.conf import settings
 
 def send_verify_email(message,user_email):
     title = "이메일 인증"

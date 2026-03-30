@@ -1,9 +1,8 @@
 from django import forms
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from todo.models import User
-
+User = get_user_model()
 
 class SignUpForm(UserCreationForm):
 
@@ -28,9 +27,10 @@ class SignUpForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('email',)
+        fields = ('email','username')
         labels = {
             'email': '이메일',
+            'username': '이름',
         }
         widgets = {
             'email' : forms.EmailInput(
@@ -38,7 +38,14 @@ class SignUpForm(UserCreationForm):
                     'class': 'form-control',
                     'placeholder': 'exmaple@example.com',
                 }
+            ),
+            'username' : forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder' : '이름을 입력하세요'
+                }
             )
+
         }
 
 class LoginForm(AuthenticationForm):
@@ -61,18 +68,7 @@ class LoginForm(AuthenticationForm):
             }
         )
     )
-    def __init__(self, *args, **kwargs):
-        super(LoginForm, self).__init__(*args, **kwargs)
-        self.user = None
 
     def clean(self):
-        # cleaned_data = super().clean()
-        email = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-        self.user = authenticate(self.request, email=email, password=password)
-        if not self.user:
-            raise forms.ValidationError('존재하지 않는 유저 입니다')
-        if not self.user.is_active:
-            raise forms.ValidationError('인증되지 않은 유저 입니다')
-        self.user_cache = self.user
-        return self.cleaned_data
+        cleaned_data = super().clean()
+        return cleaned_data
