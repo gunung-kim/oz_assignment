@@ -49,26 +49,16 @@ class SignUpForm(UserCreationForm):
         }
 
 class LoginForm(AuthenticationForm):
-
-    username = forms.EmailField(
-        label='이메일',
-        widget = forms.EmailInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': 'example@example.com',
-            }
-        )
-    )
     password = forms.CharField(
         label='비밀번호',
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control',
-                'placeholder': '비밀번호를 입력해주세요',
+                'class' : 'form-control',
+                'placeholder' : '비밀번호를 입력해주세요',
             }
         )
     )
-
-    def clean(self):
-        cleaned_data = super().clean()
-        return cleaned_data
+    #
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     return cleaned_data

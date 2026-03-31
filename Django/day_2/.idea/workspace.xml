@@ -4,8 +4,8 @@
     <list default="true" id="56a136bc-99d1-476e-bcc0-bc77499885b8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day_2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/day_2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/todo/todo_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/todo/todo_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utls/email.py" beforeDir="false" afterPath="$PROJECT_DIR$/utls/email.py" afterDir="false" />
     </list>
@@ -134,7 +134,8 @@
       <workItem from="1774802732444" duration="1110000" />
       <workItem from="1774834991322" duration="10000" />
       <workItem from="1774838085366" duration="1687000" />
-      <workItem from="1774870359119" duration="7132000" />
+      <workItem from="1774870359119" duration="7768000" />
+      <workItem from="1774919222410" duration="2960000" />
     </task>
     <servers />
   </component>
